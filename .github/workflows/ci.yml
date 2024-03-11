@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2  # 检出代码
+      uses: actions/checkout@v3  # 检出代码
 
     - name: Parse sitemap
       run: |
