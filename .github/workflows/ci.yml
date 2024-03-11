@@ -2,21 +2,27 @@ name: CI
 
 on:
   push:
-    branches:
-      - master  # 触发条件
+    branches: [ "master" ]
+  workflow_dispatch:
 
+env:
+  NODE_VERSION: '20.11.1'
+
+permissions:
+  contents: read
+  
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # 检出代码
+      uses: actions/checkout@v3
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: ${{ env.NODE_VERSION }}
 
     - name: Parse sitemap
       run: |
