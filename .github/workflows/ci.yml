@@ -13,6 +13,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3  # 检出代码
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
     - name: Parse sitemap
       run: |
         echo "https://open.shimo.im/sitemap.xml"
@@ -22,3 +27,4 @@ jobs:
       run: |
         echo "http://data.zz.baidu.com/urls?site=https://open.shimo.im&token=wX81OpgvaRbEysIT"
         # 调用百度接口的代码，使用解析出来的URL进行调用
+
