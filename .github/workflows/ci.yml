@@ -1,28 +1,24 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: CI
+name: Sitemap Parser
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main  # 触发条件，当main分支有代码推送时触发
 
 jobs:
-
-  build:
+  call-baidu-api:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v2  # 检出代码
 
-    - name: Set up go
-      uses: actions/setup-go@v4
-      with:
-        go-version: '1.20'
+    - name: Parse sitemap
+      run: |
+        echo "https://open.shimo.im/sitemap.xml"
+        # 解析Sitemap的代码，将得到的URL作为参数传递给后续步骤
 
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+    - name: Call Baidu API
+      run: |
+        echo "http://data.zz.baidu.com/urls?site=https://open.shimo.im&token=wX81OpgvaRbEysIT"
+        # 调用百度接口的代码，使用解析出来的URL进行调用
