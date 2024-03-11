@@ -1,4 +1,4 @@
-name: Sitemap Parser
+name: CI
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master  # 触发条件
 
 jobs:
-  call-baidu-api:
+  build:
     runs-on: ubuntu-latest
 
     steps:
