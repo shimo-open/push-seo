@@ -3,7 +3,7 @@ name: Sitemap Parser
 on:
   push:
     branches:
-      - main  # 触发条件，当main分支有代码推送时触发
+      - master  # 触发条件
 
 jobs:
   call-baidu-api:
@@ -18,7 +18,7 @@ jobs:
         echo "https://open.shimo.im/sitemap.xml"
         # 解析Sitemap的代码，将得到的URL作为参数传递给后续步骤
 
-    - name: Call Baidu API
+    - name: Baidu API
       run: |
         echo "http://data.zz.baidu.com/urls?site=https://open.shimo.im&token=wX81OpgvaRbEysIT"
         # 调用百度接口的代码，使用解析出来的URL进行调用
