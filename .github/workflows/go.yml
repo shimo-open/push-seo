@@ -1,0 +1,25 @@
+# This workflow will build a push-seo project
+# BAIDU_TOKEN environment variable.
+# One or more SitemapURL parameters to pass the Sitemap URL of [shimo.im](http://shimo.im/).
+
+name: SEO Submission
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  submit_to_baidu:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+
+    - name: Build and Submit
+      run: |
+        go build -v .
