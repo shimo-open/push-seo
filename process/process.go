@@ -40,6 +40,7 @@ func NewProcessor(sitemaps []string, token string, dryRun bool, s3Cli *eos.Compo
 		token:    token,
 		s3Cli:    s3Cli,
 		dryRun:   dryRun,
+		httpCli:  httpCli,
 	}
 }
 

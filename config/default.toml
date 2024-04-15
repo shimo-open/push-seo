@@ -11,3 +11,8 @@ ssl = false
 addr = "http://data.zz.baidu.com"
 debug = true
 
+[logger.ego]
+enableAsync = false
+
+[logger.sys]
+enableAsync = false
