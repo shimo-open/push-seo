@@ -1,0 +1,13 @@
+[eos]
+debug = false
+storageType = "s3"
+endpoint = "https://obs.cn-north-4.myhuaweicloud.com"
+bucket = "helei-test1"
+s3ForcePathStyle = false
+region = "cn-north-4"
+ssl = false
+
+[http.baidu]
+addr = "http://data.zz.baidu.com"
+debug = true
+

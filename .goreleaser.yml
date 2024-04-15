@@ -1,0 +1,40 @@
+# This is an example .goreleaser.yml file with some sane defaults.
+# Make sure to check the documentation at http://goreleaser.com
+before:
+  hooks:
+    - go mod download
+builds:
+  - id: push-seo
+    main: ./
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    binary: push-seo
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+archives:
+  - id: push-seo
+    builds:
+      - push-seo
+    name_template: "push-seo-{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+#    replacements:
+#      darwin: Darwin
+#      linux: Linux
+#      windows: Windows
+#      386: i386
+#      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
