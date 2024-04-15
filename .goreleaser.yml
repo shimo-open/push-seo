@@ -22,6 +22,10 @@ archives:
     builds:
       - push-seo
     name_template: "push-seo-{{ .Version }}-{{ .Os }}-{{ .Arch }}"
+    files:
+      - src: config/*
+        dst: config
+        strip_parent: true
 #    replacements:
 #      darwin: Darwin
 #      linux: Linux
